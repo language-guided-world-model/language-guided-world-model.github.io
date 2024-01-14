@@ -5,20 +5,20 @@
   <meta charset="utf-8">
   <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
   <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="DESCRIPTION META TAG">
-  <meta property="og:title" content="Language-guided World Models" />
-  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG" />
-  <meta property="og:url" content="URL OF THE WEBSITE" />
+  <meta name="description" content="Language-Guided World Models: Enhancing Human Control over Artificial Agents">
+  <meta property="og:title" content="Language-Guided World Models: Enhancing Human Control over Artificial Agents" />
+  <meta property="og:description" content="Language-Guided World Models: Enhancing Human Control over Artificial Agents" />
+  <meta property="og:url" content="https://language-guided-world-model.github.io" />
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image" content="static/images/teaser.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
 
-  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
-  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <meta name="twitter:title" content="Language-Guided World Models: Enhancing Human Control over Artificial Agents">
+  <meta name="twitter:description" content="Language-Guided World Models: Enhancing Human Control over Artificial Agents">
   <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:image" content="static/images/teaser.png">
   <meta name="twitter:card" content="summary_large_image">
   <!-- Keywords for your paper to be indexed by-->
   <meta name="keywords" content="ai, world model, language">
@@ -57,15 +57,15 @@
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Alex Zhang</a><sup>*</sup>,</span>
+                <a href="https://alexzhang13.github.io" target="_blank">Alex Zhang</a><sup>*</sup>,</span>
               <span class="author-block">
-                <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Khanh Nguyen</a><sup>*</sup>,</span>
+                <a href="https://machineslearner.com" target="_blank">Khanh Nguyen</a><sup>*</sup>,</span>
               <span class="author-block">
-                <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Jens Tuyls</a><sup>*</sup>,</span>
+                <a href="https://jens321.github.io" target="_blank">Jens Tuyls</a><sup>*</sup>,</span>
               <span class="author-block">
-                <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Albert Lin</a>,</span>
+                <a href="https://www.linkedin.com/in/albertkuilin/" target="_blank">Albert Lin</a>,</span>
               <span class="author-block">
-                <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Karthik Narasimhan</a>
+                <a href="https://www.cs.princeton.edu/~karthikn/" target="_blank">Karthik Narasimhan</a>
               </span>
             </div>
 
@@ -131,9 +131,9 @@
   <!-- Teaser video-->
   <section class="hero teaser">
     <div class="container is-max-desktop">
-      <div class="hero-body">
+      <div class="hero-body has-text-centered">
         <!-- Your video here -->
-        <img src="static/images/teaser.png" alt="Teaser figure." width="1500">
+        <img src="static/images/front.gif" alt="Teaser figure." width="900">
         <!-- <source src="static/videos/banner_video.mp4" type="video/mp4"> -->
         <h2 class="subtitle has-text-centered">
           <b> tldr; We build world models that can be modulated using natural language called Language-guided World
@@ -149,7 +149,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
-          <h2 class="title is-3">Abstract</h2>
+          <h2 class="title is-3">Overview</h2>
           <div class="content has-text-justified">
             <p>
               Putting artificial agents under human control is vital in order to sustainably
@@ -180,16 +180,49 @@
 
 
   <!-- How it Works -->
-  <section class="hero is-small is-light">
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Our Approach</h2>
+          <div class="content has-text-justified">
+            <p>
+                Learning LWMs poses a challenging problem involving the retrieval and incorporation of information across different
+                modalities.
+                
+                Our model is an encoder-decoder Transformer which encodes a manual and decodes a trajectory.
+                We transform the trajectory into a long sequence of tokens and train the model as a sequence generator.
+                <br> <br>
+                <img src="static/images/teaser.png" alt="Teaser figure." width="1500">
+
+                (a) These models enable agents to compose intuitive plans and invite a human supervisor to validate and revise those plans.
+                The supervisor is offered various strategies for revising a plan: they can either propose a new plan to directly update
+                the agent policy, or provide verbal descriptions of the environment to modify the world model, which indirectly changes
+                the plan.
+                <br> <br>
+                (b) We design an effective architecture for language-guided world models that demonstrates strong compositional
+                generalizability. Our approach converts a trajectory into a long sequence of tokens and trains a Transformer to
+                auto-regressively generate these tokens. It implements a specialized attention mechanism inspired by
+                <a href="https://arxiv.org/abs/2101.07393">Hanjie et al., 2021</a> to incorporate textual information into the observation tokens.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- End youtube video -->
+
+  <section class="hero is-small">
     <div class="hero-body">
       <div class="container">
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
             <!-- Paper video. -->
-            <h2 class="title is-3">Our Approach</h2>
-            <div class="columns is-centered has-text-centered">
-              <div class="column is-four-fifths">
-
+            <h2 class="title is-3">The Messenger Environment</h2>
+            <div class="columns is-centered has-text-justified">
+              <div class="column is-four-fifths has-text-centered">
+                <img src="static/images/messenger.png" alt="Teaser figure." width="500">
               </div>
             </div>
           </div>
@@ -197,9 +230,6 @@
       </div>
     </div>
   </section>
-  <!-- End youtube video -->
-
-
 
   <!--BibTex citation -->
   <section class="section" id="BibTeX">
@@ -207,7 +237,7 @@
       <h2 class="title">BibTeX</h2>
       <pre>
 <code>@article{zhang2024languageguided
-  title={Language-guided World Models: Enhancing Human Control Over Artificial Agents},
+  title={Language-Guided World Models: Enhancing Human Control Over Artificial Agents},
   author={Zhang, Alex and Nguyen, Khanh and Tuyls, Jens and Lin, Albert and Narasimhan, Karthik},
   year={2024},
   eprint={},
