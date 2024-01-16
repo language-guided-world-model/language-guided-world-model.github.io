@@ -133,7 +133,7 @@
     <div class="container is-max-desktop">
       <div class="hero-body has-text-centered">
         <!-- Your video here -->
-        <img src="static/images/front.gif" alt="Teaser figure." width="900">
+        <img src="static/images/teaser.gif" alt="Teaser figure." width="900">
         <!-- <source src="static/videos/banner_video.mp4" type="video/mp4"> -->
         <h2 class="subtitle has-text-centered">
           <b> tldr; We build world models that can be modulated using natural language called Language-guided World
@@ -151,7 +151,7 @@
         <div class="column is-four-fifths">
           <h2 class="title is-3">Overview</h2>
           <div class="content has-text-justified">
-            <p>
+            <p style="font-weight: normal">
               Putting artificial agents under human control is vital in order to sustainably
               leverage their powerful capabilities. Installing probabilistic world models into
               artificial agents opens an unprecedented channel for humans to direct the behavior
@@ -186,7 +186,7 @@
         <div class="column is-four-fifths">
           <h2 class="title is-3">Our Approach</h2>
           <div class="content has-text-justified">
-            <p>
+            <p style="font-weight: normal">
                 Learning LWMs poses a challenging problem involving the retrieval and incorporation of information across different
                 modalities.
                 
@@ -217,17 +217,76 @@
     <div class="hero-body">
       <div class="container">
         <div class="columns is-centered has-text-centered">
-          <div class="column is-four-fifths">
+          <div class="column is-three-fifths has-text-centered">
             <!-- Paper video. -->
-            <h2 class="title is-3">The Messenger Environment</h2>
-            <div class="columns is-centered has-text-justified">
-              <div class="column is-four-fifths has-text-centered">
-                <img src="static/images/messenger.png" alt="Teaser figure." width="500">
+            <h2 class="title is-3">Environment with Text Manuals</h2>
+            <div class="content is-centered has-text-justified">
+              <p style="font-weight: normal">
+                We evaluate on MESSENGER (<a href="https://arxiv.org/abs/2101.07393">Hanjie et al., 2021</a>) to evaluate <b>compositional generalization</b>.
+                A player interacts with entities having one of three <i>roles</i>: message, goal, or enemy.
+                The objective of the player is to acquire the message and deliver it to the goal while avoiding the enemy.
+                In addition to the role, each entity is assigned an <i>identity</i> among twelve possibilities (mage, airplane, orb,
+                etc.) and a <i>movement pattern</i> (chasing the agent, fleeing from the agent, immobile). Each game features an associated game manual, each of which describes the entity dynamics in natural language.
+              </p>
+              <br>
+              <div class="has-text-centered">
+                <img src="static/images/messenger.png" alt="Teaser figure." width="400">
+              </div>
+              <p style="font-weight: normal">
+              We create three levels of compositional generalization to evaluate our agents on.
+              </p>
+              <ul style="font-weight: normal">
+                <li> <b>NewCombo (easy).</b> Each game features a combination of three identities that were never seen together in a
+                training game.
+                However, the attributes (role and movement pattern) of each identity are the same as during training.</li>
+                
+                <li><b>NewAttr (medium).</b> The three identities were seen together in a training game, but each identity is
+                assigned at least a new attribute (role, or movement pattern, or both).</li>
+                
+                <li><b>NewAll (hard).</b> This setting combines the difficulties of the previous two. The identity triplet is novel,
+                and each identity is assigned at least a new attribute.</li>
+              </ul>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-three-fifths has-text-centered">
+            <!-- Paper video. -->
+            <h2 class="title is-3">Language-guided World Model (LWM) Learning</h2>
+            <div class="content is-centered has-text-justified">
+              <p style="font-weight: normal">
+               </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section class="hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-three-fifths has-text-centered">
+            <!-- Paper video. -->
+            <h2 class="title is-3">Downstream LWM Policy Learning</h2>
+            <div class="content is-centered has-text-justified">
+              <p style="font-weight: normal">
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     </div>
   </section>
 
