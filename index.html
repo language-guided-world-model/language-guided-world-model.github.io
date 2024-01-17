@@ -52,8 +52,7 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Language-Guided World Models: Enhancing Human Control over
-              Artificial Agents</h1>
+            <h1 class="title is-1 publication-title">Language-Guided World Models <img src="static/images/icon.png" alt="language-guided world model" style="width:4rem; height:4rem;">: Shaping Artificial Minds through Words</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
@@ -127,22 +126,22 @@
     </div>
   </section>
 
-
   <!-- Teaser video-->
   <section class="hero teaser">
     <div class="container is-max-desktop">
       <div class="hero-body has-text-centered">
         <!-- Your video here -->
-        <img src="static/images/teaser.gif" alt="Teaser figure." width="900">
+        <img src="static/images/application.png" alt="teaser" style="max-width: 50%">
         <!-- <source src="static/videos/banner_video.mp4" type="video/mp4"> -->
-        <h2 class="subtitle has-text-centered">
-          <b> tldr; We build world models that can be modulated using natural language called Language-guided World
-            Models (LWMs), allowing model-based agents to be controlled through a natural language interface. </b>
+        <h2 class="subtitle">
+          <b> We build world models that can be adapted through natural language. Artificial agents that employ these models as a reasoning module can be modulated by humans more effectively.</b>
         </h2>
       </div>
     </div>
   </section>
-  <!-- End teaser video -->
+  <!-- End teaser video --> 
+
+
 
   <!-- Paper abstract -->
   <section class="section">
@@ -152,24 +151,9 @@
           <h2 class="title is-3">Overview</h2>
           <div class="content has-text-justified">
             <p style="font-weight: normal">
-              Putting artificial agents under human control is vital in order to sustainably
-              leverage their powerful capabilities. Installing probabilistic world models into
-              artificial agents opens an unprecedented channel for humans to direct the behavior
-              of these agents. Besides allowing for explicit behavior regulation through policy
-              alteration, model-based agents enable implicit behavior regulation through world
-              model adaptation. Nevertheless, current world models lack a natural interface
-              for humans to easily adapt them.
-              <br><br>
-              To address this shortcoming, we introduce
-              Language-Guided World Models (LWMs), which can be modulated with natural
-              language. To facilitate the development of these models, we design a challenging
-              benchmark based on the game of MESSENGER (<a href="https://arxiv.org/abs/2101.07393">Hanjie et al.,
-                2021</a>), requiring
-              compositional generalization to new language descriptions and environment
-              dynamics. We show that the current state-of-the-art Transformer architecture
-              performs poorly on this benchmark, and develop a more robust architecture. To
-              showcase the practicality of our approach, we illustrate the effectiveness of LWMs
-              in facilitating safe human-agent collaboration in a simulated setting.
+              Putting artificial agents under human control is vital in order to leverage their powerful capabilities. Installing probabilistic world models into artificial agents opens an unprecedented channel for humans to control these agents. In addition to being able to regulate the behavior of agents through direct policy update, humans can modify their world models to effectively influence their decisions. Nevertheless, current world models are difficult for humans to adapt because they lack a natural communication interface. 
+<br/><br/>
+We introduce <strong>Language-Guided World Models</strong> (LWMs), which can be modulated via natural language. To facilitate the development of LWMs, we design a challenging benchmark based on the game of MESSENGER  (<a href="https://arxiv.org/abs/2101.07393">Hanjie et al.,2021</a>), requiring compositional generalization to new language descriptions and environment dynamics. We show that the current state-of-the-art Transformer architecture performs poorly on this benchmark, and develop a more robust architecture. To showcase the practicality of LWMs, we simulate a scenario where these models facilitate safe and transparent human-agent collaboration. 
             </p>
           </div>
         </div>
@@ -187,23 +171,9 @@
           <h2 class="title is-3">Our Approach</h2>
           <div class="content has-text-justified">
             <p style="font-weight: normal">
-                Learning LWMs poses a challenging problem involving the retrieval and incorporation of information across different
-                modalities.
-                
-                Our model is an encoder-decoder Transformer which encodes a manual and decodes a trajectory.
-                We transform the trajectory into a long sequence of tokens and train the model as a sequence generator.
+                Learning LWMs poses a challenging problem involving the retrieval and incorporation of information expressed in different modalities. Our model is an encoder-decoder Transformer which encodes a manual and decodes a trajectory. We transform the trajectory into a long sequence of tokens and train the model as a sequence generator. We implement a specialized attention mechanism inspired by EMMA (<a href="https://arxiv.org/abs/2101.07393">Hanjie et al., 2021</a>) to incorporate textual information into the observation tokens.
                 <br> <br>
-                <img src="static/images/teaser.png" alt="Teaser figure." width="1500">
-
-                (a) These models enable agents to compose intuitive plans and invite a human supervisor to validate and revise those plans.
-                The supervisor is offered various strategies for revising a plan: they can either propose a new plan to directly update
-                the agent policy, or provide verbal descriptions of the environment to modify the world model, which indirectly changes
-                the plan.
-                <br> <br>
-                (b) We design an effective architecture for language-guided world models that demonstrates strong compositional
-                generalizability. Our approach converts a trajectory into a long sequence of tokens and trains a Transformer to
-                auto-regressively generate these tokens. It implements a specialized attention mechanism inspired by
-                <a href="https://arxiv.org/abs/2101.07393">Hanjie et al., 2021</a> to incorporate textual information into the observation tokens.
+                <img src="static/images/model.png" alt="model" style="max-width: 100%">
             </p>
           </div>
         </div>
@@ -219,58 +189,19 @@
         <div class="columns is-centered has-text-centered">
           <div class="column is-three-fifths has-text-centered">
             <!-- Paper video. -->
-            <h2 class="title is-3">Environment with Text Manuals</h2>
+            <h2 class="title is-3">Benchmarking Compositional Generalizability</h2>
             <div class="content is-centered has-text-justified">
               <p style="font-weight: normal">
-                We evaluate on MESSENGER (<a href="https://arxiv.org/abs/2101.07393">Hanjie et al., 2021</a>) to evaluate <b>compositional generalization</b>.
-                A player interacts with entities having one of three <i>roles</i>: message, goal, or enemy.
-                The objective of the player is to acquire the message and deliver it to the goal while avoiding the enemy.
-                In addition to the role, each entity is assigned an <i>identity</i> among twelve possibilities (mage, airplane, orb,
-                etc.) and a <i>movement pattern</i> (chasing the agent, fleeing from the agent, immobile). Each game features an associated game manual, each of which describes the entity dynamics in natural language.
+              Our goal is to build world models that can generalize to <i>compositionally</i> novel texts and environment dynamics. We construct a challenging benchmark based on the MESSENGER environment to evaluate this capability of world models. The benchmark tests a model on various levels of compositional generalization.
               </p>
               <br>
               <div class="has-text-centered">
-                <img src="static/images/messenger.png" alt="Teaser figure." width="400">
+                <img src="static/images/messenger.png" alt="messenger" width="400">
               </div>
-              <p style="font-weight: normal">
-              We create three levels of compositional generalization to evaluate our agents on.
-              </p>
-              <ul style="font-weight: normal">
-                <li> <b>NewCombo (easy).</b> Each game features a combination of three identities that were never seen together in a
-                training game.
-                However, the attributes (role and movement pattern) of each identity are the same as during training.</li>
-                
-                <li><b>NewAttr (medium).</b> The three identities were seen together in a training game, but each identity is
-                assigned at least a new attribute (role, or movement pattern, or both).</li>
-                
-                <li><b>NewAll (hard).</b> This setting combines the difficulties of the previous two. The identity triplet is novel,
-                and each identity is assigned at least a new attribute.</li>
-              </ul>
-              </div>
-            </div>
+             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="hero is-small">
-    <div class="hero-body">
-      <div class="container">
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-three-fifths has-text-centered">
-            <h2 class="title is-3">Language-guided World Model (LWM) Learning</h2>
-            <div class="content is-centered has-text-justified">
-              <div class="has-text-centered">
-                <img src="static/images/fig4_u.png" alt="Teaser figure." width="700">
-              </div>
-              <p style="font-weight: normal">
-               </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     </div>
   </section>
 
@@ -280,10 +211,18 @@
         <div class="columns is-centered has-text-centered">
           <div class="column is-three-fifths has-text-centered">
             <!-- Paper video. -->
-            <h2 class="title is-3">Downstream LWM Policy Learning</h2>
+            <h2 class="title is-3">Results</h2>
             <div class="content is-centered has-text-justified">
+              <div class="has-text-centered">
+                <img src="static/images/fig4_u.png" alt="Teaser figure." width="700">
+              </div>
               <p style="font-weight: normal">
+              We demonstrate the effectiveness of our proposed model through both intrinsic and extrinsic evaluations. The model outperforms the standard encoder-decoder Transformer and approaches the performance of an oracle with a perfect semantic-parsing capability. 
               </p>
+              <div class="has-text-centered">
+                <img src="static/images/result_intrinsic.png" alt="result intrinsic" style="max-width: 49%">
+                <img src="static/images/result_extrinsic.png" alt="result extrinsic" style="max-width: 49%">
+              </div>
             </div>
           </div>
         </div>
@@ -301,8 +240,7 @@
   title={Language-Guided World Models: Enhancing Human Control Over Artificial Agents},
   author={Zhang, Alex and Nguyen, Khanh and Tuyls, Jens and Lin, Albert and Narasimhan, Karthik},
   year={2024},
-  eprint={},
-  archivePrefix={arXiv},
+  journal={arXiv},
 }</code></pre>
     </div>
   </section>
