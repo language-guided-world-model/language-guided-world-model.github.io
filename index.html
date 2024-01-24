@@ -156,9 +156,14 @@
           <h2 class="title is-3">Overview</h2>
           <div class="content has-text-justified">
             <p style="font-weight: normal">
-              Putting artificial agents under human control is vital in order to leverage their powerful capabilities. Installing probabilistic world models into artificial agents opens an unprecedented channel for humans to control these agents. In addition to being able to regulate the behavior of agents through direct policy update, humans can modify their world models to effectively influence their decisions. Nevertheless, current world models are difficult for humans to adapt because they lack a natural communication interface. 
+              Putting artificial agents under human control is vital in order to leverage their powerful capabilities. Installing probabilistic world models into artificial agents opens an efficient channel for humans to control these agents.  In addition to updating agent policies, humans can modify their internal world models in order to influence their decisions. The challenge, however, is that currently existing world
+models are difficult for humans to adapt because they lack a natural communication
+interface.  
 <br/><br/>
-We introduce <strong>Language-Guided World Models</strong> (LWMs), which can be modulated via natural language. To facilitate the development of LWMs, we design a challenging benchmark based on the game of MESSENGER  (<a href="https://arxiv.org/abs/2101.07393">Hanjie et al.,2021</a>), requiring compositional generalization to new language descriptions and environment dynamics. We show that the current state-of-the-art Transformer architecture performs poorly on this benchmark, and develop a more robust architecture. To showcase the practicality of LWMs, we simulate a scenario where these models facilitate safe and transparent human-agent collaboration. 
+We develop <strong>Language-Guided World Models</strong> (LWMs), which can capture environment dynamics by reading language descriptions. These models enhance agent communication efficiency, allowing humans to simultaneously alter their behavior on multiple tasks with concise language feedback. They also enable agents to self-learn from texts originally written to instruct humans. 
+<br/><br/>
+To facilitate the development of LWMs, we design a challenging benchmark based on the game of MESSENGER  (<a href="https://arxiv.org/abs/2101.07393">Hanjie et al.,2021</a>), requiring compositional generalization to new language descriptions and environment dynamics. Our experiments reveal that the current state-of-the-art
+Transformer architecture performs poorly on this benchmark, motivating us to design a more robust architecture.  To showcase the practicality of our proposed LWMs, we simulate a scenario where these models augment the interpretability and safety of an agent by enabling it to generate and discuss plans with a human before execution. By effectively incorporating language feedback on the plan, the models boost the agent performance in the real environment by up to three times without collecting any interactive experiences in this environment
             </p>
           </div>
         </div>
@@ -219,7 +224,7 @@ We introduce <strong>Language-Guided World Models</strong> (LWMs), which can be 
             <h2 class="title is-3">Results</h2>
             <div class="content is-centered has-text-justified">
               <p style="font-weight: normal">
-              We demonstrate the effectiveness of our proposed model through both intrinsic and extrinsic evaluations. The model outperforms the standard encoder-decoder Transformer and approaches the performance of an oracle with a perfect semantic-parsing capability. 
+              We demonstrate the effectiveness of our proposed model through both intrinsic and extrinsic evaluations. The instrinsic evaluation measures the prediction loss of the model when conditioned on ground-truth observations (we also have results with self-generated trajectories in the paper). The extrinsic evaluation simulates the scenario we describe at the top of this page, in which an agent learns from a human using its world model, without interacting with the real environment. In both evaluations, our model outperforms the standard encoder-decoder Transformer and approaches the performance of an oracle with a perfect semantic-parsing capability. 
               </p>
               <div class="has-text-centered">
                 <img src="static/images/result_intrinsic.png" alt="result intrinsic" style="max-width: 49%">
